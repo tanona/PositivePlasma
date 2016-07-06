@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Positive Plasma</string>
+    <string name="logo">positive plasma logo</string>
+    <string name="enter">Enter Data</string>
+    <string name="reports">View Reports</string>
+    <string name="glucose">glucose</string>
+    <string name="insulin">insulin</string>
+    <string name="carbs">carbs</string>
+    <string name="activity">activity</string>
+    <string name="submit">submit</string>
+    <string name="cancel">cancel</string>
+    <string name="glucose_header">Glucose</string>
+    <string name="insulin_header">Insulin</string>
+
+    <string name="title1">Date</string>
+    <string name="title2">Time</string>
+    <string name="title3">Glucose</string>
+    <string name="deleteAll">Delete All</string>
+    <string name="upload">Upload Data</string>
+    <string name="enter_data">Enter Data</string>
+</resources>
