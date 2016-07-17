@@ -13,11 +13,20 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/*
+    Java class to support the log glucose activity. Reads the user entered glucose measurement
+    and stores it in the glucose database with the current date and time..
+
+ */
 public class LogGlucoseActivity extends AppCompatActivity  {
+
     Integer glucose;
-    NumberPicker numberPicker;
     private SQLiteDatabase db;
 
+    /*
+      OnCreate: sets up the log_glucose activity
+      gets the current date and time and updates
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

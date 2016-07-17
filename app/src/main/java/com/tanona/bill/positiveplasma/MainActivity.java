@@ -47,18 +47,23 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,LogInsulinActivity.class);
         startActivity(intent);
     }
+    public void logCarbs(View view){
+        Intent intent = new Intent(this,LogCarbsActivity.class);
+        startActivity(intent);
+    }
     public void viewGlucseLogs(View view){
         Intent intent = new Intent(this,ViewGlucoseDataActivity.class);
         startActivity(intent);
     }
-    /*
+
     public void viewInsulinLogs(View view){
-        Intent intent = new Intent(this,InsulinLogsActivity.class);
+        Intent intent = new Intent(this,ViewInsulinDataActivity.class);
         startActivity(intent);
     }
-    */
 
-
-
+    public void viewCarbLogs(View view){
+        Intent intent = new Intent(this,ViewCarbDataActivity.class);
+        startActivity(intent);
+    }
 
 }

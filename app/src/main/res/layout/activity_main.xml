@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="@string/insulin"
         android:id="@+id/log_insulin_btn"
-        android:layout_above="@+id/button3"
+        android:layout_above="@+id/logCarbs"
         android:layout_alignStart="@+id/button4"
         android:nestedScrollingEnabled="false"
         android:onClick="logInsulin" />
@@ -46,9 +46,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/carbs"
-        android:id="@+id/button3"
+        android:id="@+id/logCarbs"
         android:layout_below="@+id/log_glucose_btn"
-        android:layout_alignStart="@+id/log_glucose_btn" />
+        android:layout_alignStart="@+id/log_glucose_btn"
+        android:onClick="logCarbs" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -56,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text="@string/activity"
         android:id="@+id/button4"
-        android:layout_alignTop="@+id/button3"
+        android:layout_alignTop="@+id/logCarbs"
         android:layout_toEndOf="@+id/textView" />
 
     <ImageView
@@ -74,8 +75,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/reports"
         android:id="@+id/textView2"
-        android:layout_below="@+id/button3"
-        android:layout_toEndOf="@+id/button3" />
+        android:layout_below="@+id/logCarbs"
+        android:layout_toEndOf="@+id/logCarbs" />
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -95,7 +96,8 @@
         android:layout_alignTop="@+id/view_gluc_btn"
         android:layout_alignStart="@+id/button4"
         android:layout_alignBottom="@+id/view_gluc_btn"
-        android:layout_alignEnd="@+id/log_insulin_btn" />
+        android:layout_alignEnd="@+id/log_insulin_btn"
+        android:onClick="viewInsulinLogs" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -104,7 +106,8 @@
         android:text="@string/carbs"
         android:id="@+id/view_carb_btn"
         android:layout_below="@+id/view_gluc_btn"
-        android:layout_toStartOf="@+id/textView2" />
+        android:layout_toStartOf="@+id/textView2"
+        android:onClick="viewCarbLogs" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class GlucoseDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "glucosedb";
-    private static int DB_VERSION = 1;
+    private static int DB_VERSION = 2;   // version 2 adds insulin and carbs tables
 
     GlucoseDatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -24,6 +24,8 @@ public class GlucoseDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+
         db.execSQL("CREATE TABLE GLUCOSE("
                 + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "DATE TEXT,"
@@ -31,10 +33,44 @@ public class GlucoseDatabaseHelper extends SQLiteOpenHelper {
                 + "GLUCOSE INT);");
         ContentValues glucoseValues = new ContentValues();
 
+
+        db.execSQL("CREATE TABLE INSULIN("
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "DATE TEXT,"
+                + "TIME TEXT, "
+                + "INSULIN DOUBLE);");
+        ContentValues insulinValues = new ContentValues();
+
+
+        db.execSQL("CREATE TABLE CARBS("
+                + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "DATE TEXT,"
+                + "TIME TEXT, "
+                + "CARBS DOUBLE);");
+        ContentValues carbValues = new ContentValues();
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        if(oldVersion < 2)
+            // version 2 of glucosedb adds a tables for insulin and carbs.
+
+            db.execSQL("CREATE TABLE INSULIN("
+                    + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + "DATE TEXT,"
+                    + "TIME TEXT, "
+                    + "INSULIN DOUBLE);");
+        ContentValues insulinValues = new ContentValues();
+
+        db.execSQL("CREATE TABLE CARBS("
+                    + "_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + "DATE TEXT,"
+                    + "TIME TEXT, "
+                    + "CARBS DOUBLE);");
+        ContentValues carbValues = new ContentValues();
+
 
     }
     public void insertGlucose(SQLiteDatabase db, String dateStr,String timeStr, int glucose) {
@@ -44,5 +80,19 @@ public class GlucoseDatabaseHelper extends SQLiteOpenHelper {
         glucoseValues.put("GLUCOSE", glucose);
         db.insert("GLUCOSE", null, glucoseValues);
     }
+    public void insertInsulin(SQLiteDatabase db, String dateStr,String timeStr, double insulin) {
+        ContentValues insulinValues = new ContentValues();
+        insulinValues.put("DATE", dateStr);
+        insulinValues.put("TIME", timeStr);
+        insulinValues.put("INSULIN", insulin);
+        db.insert("INSULIN", null, insulinValues);
+    }
 
+    public void insertCarbs(SQLiteDatabase db, String dateStr,String timeStr, int carbs) {
+        ContentValues carbsValues = new ContentValues();
+        carbsValues.put("DATE", dateStr);
+        carbsValues.put("TIME", timeStr);
+        carbsValues.put("CARBS", carbs);
+        db.insert("CARBS", null, carbsValues);
+    }
 }

@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tanona.bill.positiveplasma.ViewGlucoseDataActivity">
+    tools:context="com.tanona.bill.positiveplasma.ViewCarbDataActivity">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/title3"
+                android:text="@string/carbs_header"
                 android:id="@+id/textView3"
                 android:padding="3dip"
                 android:textColor="#010104"
@@ -62,7 +62,7 @@
         android:id="@+id/scrollView" >
 
         <TableLayout
-            android:id="@+id/glucoseTable"
+            android:id="@+id/carbTable"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"

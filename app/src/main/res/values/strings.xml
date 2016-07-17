@@ -11,6 +11,7 @@
     <string name="cancel">cancel</string>
     <string name="glucose_header">Glucose</string>
     <string name="insulin_header">Insulin</string>
+    <string name="carbs_header">Carbs</string>
 
     <string name="title1">Date</string>
     <string name="title2">Time</string>
@@ -18,4 +19,7 @@
     <string name="deleteAll">Delete All</string>
     <string name="upload">Upload Data</string>
     <string name="enter_data">Enter Data</string>
+    <string name="enter_glucose_meas">Enter a new glucose measurement</string>
+    <string name="enter_insulin_units">Enter the units of insulin taken</string>
+    <string name="enter_carbs">Enter Number of Carbs </string>
 </resources>

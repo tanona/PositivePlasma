@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tanona.bill.positiveplasma.LogGlucoseActivity"
+    tools:context="com.tanona.bill.positiveplasma.LogCarbsActivity"
     android:orientation="vertical"
     android:gravity="fill">
     <LinearLayout
@@ -57,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/enter_glucose_meas"
+            android:text="@string/enter_carbs"
             android:id="@+id/textView5"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
@@ -78,9 +78,9 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/glucoseEntry"
+        android:id="@+id/carbsEntry"
         android:layout_gravity="center_horizontal" />
 
     <Button
@@ -89,7 +89,7 @@
         android:text="@string/submit"
         android:id="@+id/submitBtn"
         android:layout_gravity="center_horizontal"
-        android:onClick="addGlucose" />
+        android:onClick="addCarbs" />
 
     <Button
         android:layout_width="wrap_content"
