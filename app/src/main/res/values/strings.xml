@@ -22,4 +22,6 @@
     <string name="enter_glucose_meas">Enter a new glucose measurement</string>
     <string name="enter_insulin_units">Enter the units of insulin taken</string>
     <string name="enter_carbs">Enter Number of Carbs </string>
+    <string name="activityHeader">Activity</string>
+    <string name="durationHeader">Duration</string>
 </resources>

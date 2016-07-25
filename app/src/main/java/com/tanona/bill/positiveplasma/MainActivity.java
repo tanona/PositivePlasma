@@ -47,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,LogInsulinActivity.class);
         startActivity(intent);
     }
-    public void logCarbs(View view){
-        Intent intent = new Intent(this,LogCarbsActivity.class);
+
+    public void logActivity(View view){
+        Intent intent = new Intent(this,LogActivityActivity.class);
         startActivity(intent);
     }
     public void viewGlucseLogs(View view){
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void viewCarbLogs(View view){
         Intent intent = new Intent(this,ViewCarbDataActivity.class);
+        startActivity(intent);
+    }
+    public void viewActivityLogs(View view){
+        Intent intent = new Intent(this,ViewActivityActivity.class);
         startActivity(intent);
     }
 

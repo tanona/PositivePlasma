@@ -20,7 +20,9 @@
         <activity android:name=".ViewGlucoseDataActivity" />
         <activity android:name=".ViewInsulinDataActivity" />
         <activity android:name=".LogCarbsActivity" />
-        <activity android:name=".ViewCarbDataActivity"></activity>
+        <activity android:name=".ViewCarbDataActivity" />
+        <activity android:name=".ViewActivityActivity" />
+        <activity android:name=".LogActivityActivity"></activity>
     </application>
 
 </manifest>
