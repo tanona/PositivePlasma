@@ -4,10 +4,8 @@ package com.tanona.bill.positiveplasma;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.tanona.bill.positiveplasma.DateGetter;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -50,7 +48,9 @@ public class LogActivityActivity extends AppCompatActivity {
         // get the activity value from the user entry box
         EditText activityText = (EditText)findViewById(R.id.activityEntry);
         activity=activityText.getText().toString(); //get the activity.
-        duration=1.0;
+        EditText durationText = (EditText)findViewById(R.id.durationEntry);
+        duration = Double.parseDouble(durationText.getText().toString());
+
         dbHelper.insertActivity(db, dateStr, timeStr, activity,duration);
         startActivity(intent);
 

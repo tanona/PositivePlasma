@@ -14,23 +14,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deleteAll"
+            android:id="@+id/deleteAllBtn"
+            android:onClick="deleteAll" />
+
         <TableRow android:layout_height="wrap_content"
             android:layout_width="fill_parent">>
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/title1"
+                android:text="@string/date_time"
                 android:id="@+id/textView"
-                android:padding="3dip"
                 android:textColor="#010104"
-                android:layout_weight="2" />
-
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/title2"
-                android:id="@+id/textView2"
-                android:padding="3dip"
-                android:textColor="#020205"
-                android:layout_weight="4" />
+                android:gravity="start"
+                android:layout_column="1"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:layout_weight="1" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,11 +40,11 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/activityHeader"
                 android:id="@+id/textView3"
-                android:padding="3dip"
                 android:textColor="#010104"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_column="4" />
+                android:gravity="start"
+                android:layout_column="3"
+                android:paddingLeft="0dp"
+                android:layout_weight="2" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,34 +54,44 @@
                 android:padding="3dip"
                 android:textColor="#010104"
                 android:layout_weight="1"
-                android:gravity="right"
-                android:layout_column="4" />
+                android:gravity="end|right"
+                android:layout_column="3" />
 
         </TableRow>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/deleteAll"
-            android:id="@+id/deleteAllBtn"
-            android:onClick="deleteAll" />
 
 
     </TableLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="432dp"
-        android:id="@+id/scrollView" >
+        android:layout_height="351dp"
+        android:id="@+id/scrollView">
 
         <TableLayout
             android:id="@+id/activityTable"
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
 
         </TableLayout>
     </ScrollView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:baselineAligned="false">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:id="@+id/submitBtn"
+            android:layout_gravity="center_horizontal"
+            android:onClick="home" />
+
+    </LinearLayout>
 
 </LinearLayout>

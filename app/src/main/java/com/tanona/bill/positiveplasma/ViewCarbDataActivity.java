@@ -1,5 +1,6 @@
 package com.tanona.bill.positiveplasma;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -76,6 +77,10 @@ public class ViewCarbDataActivity extends AppCompatActivity {
         db = myDatabaseHelper.getWritableDatabase();
         db.execSQL("delete from " + "CARBS");
         fillTable();
+    }
+    public void home(View view){
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }
 

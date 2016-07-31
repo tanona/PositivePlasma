@@ -57,21 +57,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/enter_carbs"
+            android:text="@string/enter_activity"
             android:id="@+id/textView5"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:padding="10dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:layout_gravity="center_horizontal"
-        android:baselineAligned="false">
-
     </LinearLayout>
 
 
@@ -82,22 +72,58 @@
         android:ems="10"
         android:id="@+id/activityEntry"
         android:layout_gravity="center_horizontal" />
-
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
-        android:id="@+id/submitBtn"
+        android:paddingTop="10dp"
         android:layout_gravity="center_horizontal"
-        android:onClick="addActivity" />
+        android:baselineAligned="false" >
 
-    <Button
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/enter_duration"
+            android:id="@+id/textView6"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/durationEntry"
+        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        android:id="@+id/cancelBtn"
+        android:paddingTop="10dp"
         android:layout_gravity="center_horizontal"
-        android:onClick="cancel" />
+        android:baselineAligned="false">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:id="@+id/submitBtn"
+            android:layout_gravity="center_horizontal"
+            android:onClick="addActivity" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/cancelBtn"
+            android:layout_gravity="center_horizontal"
+            android:onClick="cancel" />
+    </LinearLayout>
 
 
 </LinearLayout>
