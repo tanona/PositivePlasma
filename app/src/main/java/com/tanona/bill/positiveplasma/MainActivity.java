@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,LogActivityActivity.class);
         startActivity(intent);
     }
+    public void logCarbs(View view){
+        Intent intent = new Intent(this,LogCarbsActivity.class);
+        startActivity(intent);
+    }
     public void viewGlucseLogs(View view){
         Intent intent = new Intent(this,ViewGlucoseDataActivity.class);
         startActivity(intent);

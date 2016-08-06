@@ -1,6 +1,7 @@
 package com.tanona.bill.positiveplasma;
 
 import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,7 +17,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ViewGlucoseDataActivity extends AppCompatActivity {
+public class ViewGlucoseDataActivity extends AppCompatActivity
+                    implements  ConfirmDelete.NoticeDialogListener{
     private SQLiteDatabase db;
     private GlucoseDatabaseHelper dbHelper;
     private Cursor cursor;
@@ -51,7 +53,7 @@ public class ViewGlucoseDataActivity extends AppCompatActivity {
                     String dateStr = cursor.getString(cursor.getColumnIndex("DATE"));
 
                     TextView newDate = (TextView) View.inflate(this, R.layout.textview_layout, null);
-                    lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,TableRow.LayoutParams.MATCH_PARENT, 1f);
+                    lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,TableRow.LayoutParams.MATCH_PARENT, 1f);
                     lp.weight=1;
 
                     newDate.setText(dateStr);
@@ -63,7 +65,7 @@ public class ViewGlucoseDataActivity extends AppCompatActivity {
                     String timeStr = cursor.getString(cursor.getColumnIndex("TIME"));
                     TextView newTimeName = (TextView) View.inflate(this, R.layout.textview_layout, null);
                     lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,TableRow.LayoutParams.MATCH_PARENT, 1f);
-                    lp.weight=1;
+                    lp.weight=2;
                     newTimeName.setGravity(Gravity.LEFT);
                  ///   newTimeName.setEms(12);
                     newTimeName.setText(timeStr);
@@ -74,7 +76,7 @@ public class ViewGlucoseDataActivity extends AppCompatActivity {
                     String glucoseStr = cursor.getString(cursor.getColumnIndex("GLUCOSE"));
                     TextView newGlucose = (TextView) View.inflate(this, R.layout.textview_layout, null);
                     lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,TableRow.LayoutParams.MATCH_PARENT, 2f);
-                    lp.weight=2;
+                    lp.weight=4;
                     
                     newGlucose.setGravity(Gravity.RIGHT);
                     newGlucose.setText(glucoseStr);
@@ -92,37 +94,33 @@ public class ViewGlucoseDataActivity extends AppCompatActivity {
     }
 
     public void deleteAll(View view) {
-        //showMessage("delete confirm","Are you Sure?");
-        showMessage("Are You Sure?","activities") ;
-        if(deleteAll) {
-            SQLiteOpenHelper myDatabaseHelper = new GlucoseDatabaseHelper(this);
-            db = myDatabaseHelper.getWritableDatabase();
-            db.execSQL("delete from " + "GLUCOSE");
-            fillTable();
-        }
+        // use the ConfirmDelete class to make sure...
+        showConfirmDelete(); ;
     }
-    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            switch (which){
-                case DialogInterface.BUTTON_POSITIVE:
-                    //Yes button clicked
-                    deleteAll=true;
-                    break;
 
-                case DialogInterface.BUTTON_NEGATIVE:
-                    //No button clicked
-                    deleteAll=false;
-                    break;
-            }
-        }
-    };
-    public void showMessage(String title, String message){
-        // use to display warning and information messages
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you want to delete all of the data?").setPositiveButton("Yes", dialogClickListener)
-                .setNegativeButton("No", dialogClickListener).show();
+    public void showConfirmDelete(){
+        DialogFragment dialog = new ConfirmDelete();
+        dialog.show(getFragmentManager(), "ConfirmDelete");
+        onDialogPositiveClick(dialog);
+
     }
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        SQLiteOpenHelper myDatabaseHelper = new GlucoseDatabaseHelper(this);
+        db = myDatabaseHelper.getWritableDatabase();
+        db.execSQL("delete from " + "GLUCOSE");
+        fillTable();
+    }
+
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog){
+        // do nothing
+
+    }
+
+
+    // method for returning to the home screen
     public void home(View view){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);

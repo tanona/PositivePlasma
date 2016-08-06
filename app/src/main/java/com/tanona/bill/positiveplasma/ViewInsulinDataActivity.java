@@ -1,6 +1,8 @@
 package com.tanona.bill.positiveplasma;
 
 
+import android.app.DialogFragment;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -15,7 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class ViewInsulinDataActivity extends AppCompatActivity {
+public class ViewInsulinDataActivity extends AppCompatActivity
+        implements ConfirmDelete.NoticeDialogListener {
     private SQLiteDatabase db;
     private GlucoseDatabaseHelper dbHelper;
     private Cursor cursor;
@@ -74,9 +77,34 @@ public class ViewInsulinDataActivity extends AppCompatActivity {
     }
 
     public void deleteAll(View view) {
+        showConfirmDelete();
+        ;
+    }
+
+    public void showConfirmDelete() {
+        DialogFragment dialog = new ConfirmDelete();
+        dialog.show(getFragmentManager(), "ConfirmDelete");
+        onDialogPositiveClick(dialog);
+
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
         SQLiteOpenHelper myDatabaseHelper = new GlucoseDatabaseHelper(this);
         db = myDatabaseHelper.getWritableDatabase();
         db.execSQL("delete from " + "INSULIN");
         fillTable();
+    }
+
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        // do nothing
+
+    }
+
+    public void home(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
