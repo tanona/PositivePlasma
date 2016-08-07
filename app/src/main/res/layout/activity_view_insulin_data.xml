@@ -10,9 +10,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.tanona.bill.positiveplasma.ViewInsulinDataActivity">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deleteAll"
+            android:id="@+id/deleteAllBtn"
+            android:onClick="deleteInsulin" />
+    </LinearLayout>
+
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
 
         <TableRow android:layout_height="wrap_content"
             android:layout_width="fill_parent">>
@@ -22,7 +38,7 @@
                 android:id="@+id/textView"
                 android:padding="3dip"
                 android:textColor="#010104"
-                android:layout_weight="2" />
+                android:gravity="center_horizontal" />
 
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -30,7 +46,7 @@
                 android:id="@+id/textView2"
                 android:padding="3dip"
                 android:textColor="#020205"
-                android:layout_weight="4" />
+                android:gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,18 +56,10 @@
                 android:id="@+id/textView3"
                 android:padding="3dip"
                 android:textColor="#010104"
-                android:layout_weight="1"
                 android:gravity="right"
                 android:layout_column="4" />
 
         </TableRow>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/deleteAll"
-            android:id="@+id/deleteAllBtn"
-            android:onClick="deleteAll" />
 
 
     </TableLayout>
@@ -65,8 +73,10 @@
             android:id="@+id/insulinTable"
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:stretchColumns="*"
+            android:shrinkColumns="*">
 
         </TableLayout>
     </ScrollView>
@@ -87,4 +97,5 @@
             android:onClick="home" />
 
     </LinearLayout>
+
 </LinearLayout>

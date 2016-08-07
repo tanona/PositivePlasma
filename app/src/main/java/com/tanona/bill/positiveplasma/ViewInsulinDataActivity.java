@@ -76,15 +76,13 @@ public class ViewInsulinDataActivity extends AppCompatActivity
         }
     }
 
-    public void deleteAll(View view) {
+    public void deleteInsulin(View view) {
         showConfirmDelete();
-        ;
     }
 
     public void showConfirmDelete() {
         DialogFragment dialog = new ConfirmDelete();
         dialog.show(getFragmentManager(), "ConfirmDelete");
-        onDialogPositiveClick(dialog);
 
     }
 
@@ -100,7 +98,8 @@ public class ViewInsulinDataActivity extends AppCompatActivity
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
         // do nothing
-
+        Toast toast = Toast.makeText(this, "Delete canceled",Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void home(View view) {

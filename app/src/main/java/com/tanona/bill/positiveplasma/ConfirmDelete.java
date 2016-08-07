@@ -19,8 +19,8 @@ public class ConfirmDelete extends DialogFragment{
     * Each method passes the DialogFragment in case the host needs to query it.
     */
     public interface NoticeDialogListener {
-        public void onDialogPositiveClick(DialogFragment dialog);
-        public void onDialogNegativeClick(DialogFragment dialog);
+         void onDialogPositiveClick(DialogFragment dialog);
+         void onDialogNegativeClick(DialogFragment dialog);
     }
 
     // use this instance of the interface to deliver action events
@@ -48,6 +48,7 @@ public class ConfirmDelete extends DialogFragment{
         builder.setMessage("Confirm Delete")
                 .setPositiveButton("Yes",new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int id) {
+                        mListener.onDialogPositiveClick(ConfirmDelete.this);
                         // delete confirmed
                     }
 
@@ -55,6 +56,7 @@ public class ConfirmDelete extends DialogFragment{
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int id) {
                         // cancel delete
+                        mListener.onDialogNegativeClick(ConfirmDelete.this);
                     }
                 }
                 );

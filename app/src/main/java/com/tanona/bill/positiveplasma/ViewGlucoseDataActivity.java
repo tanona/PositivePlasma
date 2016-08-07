@@ -93,7 +93,7 @@ public class ViewGlucoseDataActivity extends AppCompatActivity
         }
     }
 
-    public void deleteAll(View view) {
+    public void deleteGlucose(View view) {
         // use the ConfirmDelete class to make sure...
         showConfirmDelete(); ;
     }
@@ -101,7 +101,6 @@ public class ViewGlucoseDataActivity extends AppCompatActivity
     public void showConfirmDelete(){
         DialogFragment dialog = new ConfirmDelete();
         dialog.show(getFragmentManager(), "ConfirmDelete");
-        onDialogPositiveClick(dialog);
 
     }
     @Override

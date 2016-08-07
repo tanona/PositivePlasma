@@ -74,15 +74,14 @@ public class ViewCarbDataActivity extends AppCompatActivity
             toast.show();
         }
     }
-    public void deleteAll(View view) {
+    public void deleteCarbs(View view) {
         // use the ConfirmDelete class to make sure...
-        showConfirmDelete(); ;
+        showConfirmDelete();
     }
 
     public void showConfirmDelete(){
         DialogFragment dialog = new ConfirmDelete();
         dialog.show(getFragmentManager(), "ConfirmDelete");
-        onDialogPositiveClick(dialog);
 
     }
     @Override

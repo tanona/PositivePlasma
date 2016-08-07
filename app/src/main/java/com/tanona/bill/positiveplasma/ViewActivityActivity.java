@@ -43,6 +43,9 @@ public class ViewActivityActivity extends AppCompatActivity
             if (cursor.moveToFirst()) {
                 while (cursor.isAfterLast() == false) {
                     // add a new row for each reading
+
+
+
                     TableRow newRow = (TableRow) View.inflate(this, R.layout.tablerow_layout, null);
                     // add date to row
                     String dateStr = cursor.getString(cursor.getColumnIndex("DATE"));
@@ -54,29 +57,20 @@ public class ViewActivityActivity extends AppCompatActivity
                     newDate.setGravity(Gravity.START);
                     newRow.addView(newDate, 0);
 
-                    // add time name
-                    /*
-                    String timeStr = cursor.getString(cursor.getColumnIndex("TIME"));
-                    TextView newTimeName = (TextView) View.inflate(this, R.layout.textview_layout, null);
-                    newTimeName.setGravity(Gravity.START);
-                    newTimeName.setEms(10);
-                    newTimeName.setText(timeStr);
-                    newRow.addView(newTimeName, 1);
-*/
+
                     // add Activity
                     String activityStr = cursor.getString(cursor.getColumnIndex("ACTIVITY"));
                     TextView newActivity = (TextView) View.inflate(this, R.layout.textview_layout, null);
-                    newActivity.setGravity(Gravity.CENTER);
+                    newActivity.setGravity(Gravity.LEFT);
                     newActivity.setText(activityStr);
+                    newActivity.setEms(10);
                     newRow.addView(newActivity, 1);
-                  //  activityTable.addView(newRow);
-                 //   cursor.moveToNext();
+
 
                     // add duration
                     String durationStr = cursor.getString(cursor.getColumnIndex("DURATION"));
                     TextView newDuration = (TextView) View.inflate(this, R.layout.textview_layout, null);
-                    //newDuration.setPadding(5,0,0,0);
-                    newDuration.setGravity(Gravity.END);
+                    newDuration.setGravity(Gravity.RIGHT);
                     newDuration.setText(durationStr);
                     newRow.addView(newDuration, 2);
                     activityTable.addView(newRow);
@@ -88,19 +82,21 @@ public class ViewActivityActivity extends AppCompatActivity
             toast.show();
         }
     }
-    public void deleteAll(View view) {
+    public void deleteActivity(View view) {
         // use the ConfirmDelete class to make sure...
-        showConfirmDelete(); ;
+        showConfirmDelete();
     }
 
     public void showConfirmDelete(){
         DialogFragment dialog = new ConfirmDelete();
         dialog.show(getFragmentManager(), "ConfirmDelete");
-        onDialogPositiveClick(dialog);
 
     }
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
+        Toast toast = Toast.makeText(this, "Deleting all activities", Toast.LENGTH_SHORT);
+        toast.show();
+
         SQLiteOpenHelper myDatabaseHelper = new GlucoseDatabaseHelper(this);
         db = myDatabaseHelper.getWritableDatabase();
         db.execSQL("delete from " + "ACTIVITIES");
@@ -111,7 +107,8 @@ public class ViewActivityActivity extends AppCompatActivity
     @Override
     public void onDialogNegativeClick(DialogFragment dialog){
         // do nothing
-
+        Toast toast = Toast.makeText(this, "delete cancelled", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public void home(View view){
