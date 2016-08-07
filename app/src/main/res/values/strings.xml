@@ -25,7 +25,7 @@
     <string name="activityHeader">Activity</string>
     <string name="durationHeader">Duration</string>
     <string name="date_time">Date / Time</string>
-    <string name="enter_activity">Anter the name of the activity</string>
-    <string name="enter_duration">Enter the duraton in hours</string>
+    <string name="enter_activity">Enter the name of the activity</string>
+    <string name="enter_duration">Enter the duration in hours</string>
     <string name="home">HOME</string>
 </resources>
